@@ -1,0 +1,163 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url(/fonts/Roboto-Medium.ttf);
+    font-weight: 500;
+    font-style: normal;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+nav{
+    background: rgb(236, 234, 234);
+    display: flex;
+    justify-content: flex-end;
+    padding: 15px;
+}
+
+nav ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li{
+  display: inline;
+  transition-duration: 0.4s;
+  background-color: #0291f7;
+  border: 2px solid #0291f7;
+  color: white;
+  padding: 0px 12px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin-left: 30px;
+  border-radius: 15px 15px 15px 15px;
+  font-family: 'Roboto';
+  font-weight: 700;
+  font-style: normal;
+}
+
+nav ul li:hover{
+  background-color: #0b5a93;
+  color: rgb(0, 0, 0);
+}
+
+nav ul li a{
+    text-decoration: none;
+    padding: 20px;
+    color: #fff;
+    display: inline-block;
+}
+
+#logo{
+  float: left;
+  background: rgb(236, 234, 234);
+}
+
+section{
+    border: transparent;
+    padding: 10px;
+}
+
+
+footer{
+  background: #0b5a93;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 15px;
+  color: white;
+  font-family: 'Roboto';
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+
+
+/* Create two unequal columns that floats next to each other */
+/* Left column */
+.leftcolumn {
+  float: left;
+  width: 50%;
+  margin: auto;
+  margin-left: 200px;
+}
+
+/* Right column */
+.rightcolumn {
+  float: right;
+  width: 25%;
+  padding-left: 20px;
+  margin-right: 250px;
+  
+}
+
+/* Fake image */
+.fakeimg {
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
+}
+
+/* Add a card effect for articles */
+.card {
+  background-color: white;
+  padding: 0px;
+  margin-top: 20px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+  margin-top: 20px;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {
+    width: 100%;
+    padding: 0;
+  }
+}
+
+.card {
+  
+  border-radius: 5px; /* Bordes redondeados */
+  margin-bottom: 20px; /* Espacio entre tarjetas */
+}
+
+.card-header.color, .card-header.color2 {
+  background-color: #0b5a93; /* Un azul más oscuro para el encabezado */
+  color: white; /* Color del texto en el encabezado */
+  font-weight: bold; /* Negrita para el texto del encabezado */
+}
+
+.card-body {
+  padding: 15px; /* Espaciado interno */
+}
+
+
+
+
+
+

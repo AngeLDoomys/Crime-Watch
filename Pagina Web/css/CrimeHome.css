@@ -1,0 +1,135 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url(/fonts/Roboto-Medium.ttf);
+    font-weight: 500;
+    font-style: normal;
+}
+
+header{
+    
+}
+
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+nav{
+    background: rgb(236, 234, 234);
+    display: flex;
+    justify-content: flex-end;
+    padding: 15px;
+}
+
+nav ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li{
+    display: inline;
+    transition-duration: 0.4s;
+    background-color: #0291f7;
+    border: 2px solid #0291f7;
+    color: white;
+    padding: 0px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin-left: 30px;
+    border-radius: 15px 15px 15px 15px;
+    font-family: 'Roboto';
+    font-weight: 700;
+    font-style: normal;
+}
+
+nav ul li:hover{
+    background-color: #0b5a93;
+    color: rgb(0, 0, 0);
+}
+
+nav ul li a{
+    text-decoration: none;
+    padding: 20px;
+    color: #fff;
+    display: inline-block;
+}
+
+#logo{
+    float: left;
+    margin-left: 46%;
+    background: rgb(236, 234, 234);
+    margin: auto;
+}
+
+section{
+    border: transparent;
+    padding: 10px;
+}
+
+#banner{
+    padding: 0;
+    margin: auto;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    position: relative;
+    background-image: url("../img/banner4lowres.avif");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+footer{
+    background: #0b5a93;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 15px;
+    color: white;
+    font-family: 'Roboto';
+    font-weight: 700;
+    font-style: normal;
+}
+
+#PropHeader{
+    background: #0493f3;
+}
+
+#PropHeader span{
+    display: inline;
+    margin-left: 46%;
+    width: 30%;
+    color: white;
+    font-size: large;
+    font-family: 'Roboto';
+    font-weight: 700;
+    font-style: normal;
+}
+
+#textoSection .container {
+    text-align: center;
+    font-size: 18px; /* Ajusta el tamaño del texto según prefieras */
+    padding-top: 40px;
+}
+
+#map{
+    height: 90%;
+  }
+  html,
+  body{
+    height: 70%;
+    margin: 0;
+    padding: 0;
+  }
+  input{
+    width: 100%;
+    height: 40px;
+    border-radius: 0;
+    border: none;
+    font-size: 20px;
+  }

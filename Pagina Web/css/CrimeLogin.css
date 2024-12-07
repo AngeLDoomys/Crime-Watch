@@ -1,0 +1,134 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url(/fonts/Roboto-Medium.ttf);
+    font-weight: 500;
+    font-style: normal;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+#contenedor{
+    padding: auto;
+    margin: auto;
+    border-radius: 15px 15px 15px 15px;
+    width: 500px;
+    background-color: rgb(253, 253, 253);
+    color: orange;
+    border: 6px solid #0493f3;
+    -webkit-box-shadow: -2px 1px 25px 4px rgba(0,0,0,0.64);
+    -moz-box-shadow: -2px 1px 25px 4px rgba(0,0,0,0.64);
+    box-shadow: -2px 1px 25px 4px rgba(0,0,0,0.64);
+}
+
+#iconos{
+    width: 500px;
+    margin: auto;
+}
+
+.formulario{
+
+}
+
+img{
+    margin-left: 85px;
+}
+
+#login_logo{
+    justify-content: center;
+    align-items: center;
+}
+
+#formulario{
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+}
+
+#formulario label{
+    font-size: 26px;
+    margin-left: 70px;
+    text-align: center;
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-style: normal;
+}
+
+#fuser{
+    color: black;
+    font-size: medium;
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-style: normal;
+}
+
+#fpass{
+    color: black;
+    font-size: medium;
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-style: normal;
+}
+
+#formulario input{
+    width: 70%;
+    height: 100%;
+    margin-left: 70px;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 4px solid rgba(233, 160, 4, 0.2);
+    border-radius: 30px;
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-style: normal;
+}
+
+.Olvidar{
+    margin-left: 70px;
+    font-size: large;
+    text-decoration: none;
+    color: orange;
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-style: normal;
+}
+
+.ingresar{
+    transition-duration: 0.4s;
+    background-color: #0493f3;
+    border: 2px solid #0493f3;
+    color: white;
+    padding: 16px 38px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 26px;
+    margin-left: 180px;
+    margin-bottom: 16px;
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-style: normal;
+}
+
+.ingresar:hover{
+    background-color: #fff;
+    color: black
+}
+
+.textalign{
+    text-align: center;
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-style: normal;
+}
+
+.color{
+    background-color: #000000;
+    color: white;
+}

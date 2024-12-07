@@ -1,0 +1,197 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url(/fonts/Roboto-Medium.ttf);
+    font-weight: 500;
+    font-style: normal;
+}
+
+.textalign{
+    text-align: center;
+}
+
+#logo{
+    float: left;
+}
+
+nav{
+    background: #0291f7;
+    display: flex;
+    justify-content: flex-end;
+    padding: 15px;
+}
+
+.color{
+    background: #0291f7;
+}
+
+.color2{
+    background: rgb(231,227,218);
+    background: linear-gradient(90deg, rgba(231,227,218,1) 18%, rgba(236,236,236,1) 70%);
+}
+
+nav ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sinuso ul li{
+    display: inline;
+    transition-duration: 0.4s;
+    background-color: #03a1fc;
+    border: 2px solid #03a1fc;
+    color: white;
+    padding: 0px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin-left: 30px;
+    border-radius: 15px 15px 15px 15px;
+    font-family: 'Roboto';
+    font-weight: 700;
+    font-style: normal;
+}
+
+.sinuso ul li:hover{
+    background-color: #379fcf;
+    color: white;
+}
+
+p{
+    color: white;
+}
+
+.cajauser{
+    border-radius: 104px 104px 104px 104px;
+    -webkit-border-radius: 104px 104px 104px 104px;
+    -moz-border-radius: 104px 104px 104px 104px;
+    background-color: white;
+    margin: auto;
+    padding: 10px;
+}
+
+nav ul li a{
+    text-decoration: none;
+    padding: 15px;
+    color: #fff;
+    display: inline-block;
+}
+
+#menu2{
+    width: 80%;
+    margin: auto;
+    font-family: 'Roboto';
+    font-weight: 700;
+    font-style: normal;
+}
+
+#busqueda{
+    margin: left;
+    padding: 10px;
+    background-color: cornsilk;
+}
+
+#menu3{
+    margin: left;
+}
+
+.derecha{
+    text-align: right;
+    align-content: right;
+}
+
+.quitarlink{
+    text-decoration: none;
+    color: rgb(8, 8, 8);
+}
+
+.alinearderecha{
+    align-items: right;
+    text-align: right;
+    float: right;
+}
+
+.caja{
+    width: 110px;
+    height: 150px;
+    border: 1px solid #000;
+    text-align: center;
+    background-color: #ffffffb2;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    margin: auto;
+    padding: 10px;
+}
+
+/* Style the sidebar - fixed full height */
+.sidebar {
+    height: 100%;
+    width: 160px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #050633;
+    overflow-x: hidden;
+    padding-top: 16px;
+  }
+  
+  /* Style sidebar links */
+  .sidebar a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 15px;
+    color: #818181;
+    display: block;
+    margin-top: 15;
+  }
+  
+  /* Style links on mouse-over */
+  .sidebar a:hover {
+    color: #f1f1f1;
+  }
+  
+  /* Style the main content */
+  .main {
+    margin-left: 160px; /* Same as the width of the sidenav */
+    padding: 0px 10px;
+  }
+  
+  /* Add media queries for small screens (when the height of the screen is less than 450px, add a smaller padding and font-size) */
+  @media screen and (max-height: 450px) {
+    .sidebar {padding-top: 15px;}
+    .sidebar a {font-size: 18px;}
+  }
+
+#PropHeader{
+    background: rgb(210,159,47);
+    background: linear-gradient(90deg, rgba(210,159,47,1) 11%, rgba(255,199,76,1) 48%, rgba(255,171,0,1) 100%);
+}
+
+#PropHeader span{
+    display: inline;
+    margin-left: 47%;
+    width: 30%;
+    color: white;
+    font-size: large;
+    font-family: 'Roboto';
+    font-weight: 700;
+    font-style: normal;
+}
+
+.profile-img {
+    position: relative;
+    width: 5rem;
+    height: 4rem;
+    background-size: cover;
+  }
+  
+.profile-img i {
+    position: absolute;
+    right: 0;
+    bottom: 0.3rem;
+    font-size: 0.5rem;
+    color: var(--green);
+}

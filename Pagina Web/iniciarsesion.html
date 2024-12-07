@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+	<link rel="shortcut icon" type="x-icon" href="img/logos/favicon.ico">
+    <link rel="stylesheet" href="css/CrimeLogin.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+      function validar(){
+          if(document.form.email.value=="")
+          {
+              alert("Ingresa el Usuario");
+              document.form.email.focus();
+              return false;
+          }
+          if(document.form.pswd.value=="")
+          {
+              alert("Ingresa la contraseña");
+              document.form.pswd.focus();
+              return false;
+          }
+       }
+    </script>
+    <title>Crime Watch Login</title>
+</head>
+<body>
+  <div id="contenedor">
+    <div class="card">
+      <div class="card-header textalign color">Inicie Sesión</div>
+      <div class="card-body"></div>
+      <div id="login_logo"><img src="img/logos/CrimeWatch.png" width="300" height="300">
+      <form action="validarlogin.php" method="post" name="form">
+          <div class="mb-3 mt-3">
+            <label for="email" class="form-label formulario">Email:</label>
+            <input type="email" class="form-control formulario" id="email" placeholder="Ingrese su mail" name="email" required>
+          </div>
+          <div class="mb-3">
+            <label for="pwd" class="form-label">Contraseña:</label>
+            <input type="password" class="form-control" id="pswd" placeholder="Ingrese su Contraseña" name="pswd" required>
+          </div>
+          <div class="form-check mb-3">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" name="remember"> Recordar Contraseña
+            </label>
+          </div>
+          <button type="submit" class="ingresar" onclick="validar();">Ingresar</button>
+        </form>
+      <div class="card-footer textalign color">Neighborhood Crime Watch 2024 Todos los derechos reservados.</div>
+    </div>
+  </div>
+
+</body>
+</html>

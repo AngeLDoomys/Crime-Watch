@@ -1,0 +1,17 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.NeighborhoodCrimeWatch" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
+        <item name="colorPrimary">@color/Primary</item>
+        <item name="colorPrimaryVariant">@color/DarkPrimary</item>
+        <item name="colorSecondary">@color/Accent</item>
+        <item name="colorOnSecondary">@color/TextnIcons</item>
+        <item name="colorOnPrimary">@color/TextnIcons</item>
+        <item name="divider">@color/Divider</item>
+
+    </style>
+
+    <style name="Theme.NeighborhoodCrimeWatch" parent="Base.Theme.NeighborhoodCrimeWatch" />
+</resources>

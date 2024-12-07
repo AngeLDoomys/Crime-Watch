@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "692680444287",
+    "project_id": "neighborhood-crime-watch",
+    "storage_bucket": "neighborhood-crime-watch.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:692680444287:android:5840fe185d0a435f76724a",
+        "android_client_info": {
+          "package_name": "cl.inacap.neighborhoodcrimewatch"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbMSG3X6VVwwCEl7sQ4r-YBHnnFCR5gj8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
