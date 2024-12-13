@@ -3,6 +3,7 @@ package cl.inacap.neighborhoodcrimewatch;
 import static android.content.ContentValues.TAG;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -85,6 +86,15 @@ public class MainActivity extends AppCompatActivity {
                             if (estado.equals("0")) {
                                 Toast.makeText(MainActivity.this, "Usuario no Existe", Toast.LENGTH_LONG).show();
                             } else {
+                                // Obtener el ID del usuario desde la respuesta del servidor
+                                String idUsuario = obtenerIdUsuarioDesdeLaRespuesta(response);
+
+                                // Guardar el ID del usuario en SharedPreferences
+                                SharedPreferences sharedPreferences = getSharedPreferences("usuario", MODE_PRIVATE);
+                                SharedPreferences.Editor editor = sharedPreferences.edit();
+                                editor.putString("idusu", idUsuario);
+                                editor.apply();
+
                                 Intent ventana = new Intent(MainActivity.this, Home.class);
                                 startActivity(ventana);
                                 finish(); // Cerrar MainActivity
@@ -104,4 +114,18 @@ public class MainActivity extends AppCompatActivity {
 
         datos.add(request);
     }
+
+    // Método para obtener el ID del usuario desde la respuesta del servidor
+    private String obtenerIdUsuarioDesdeLaRespuesta(JSONObject response) {
+        try {
+            // Obtener el ID del usuario desde la respuesta del servidor
+            // En este caso, asumimos que el ID del usuario se encuentra en el campo "idusu"
+            String idUsuario = response.getString("idusu");
+            return idUsuario;
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }
+

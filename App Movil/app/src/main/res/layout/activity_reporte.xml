@@ -7,52 +7,38 @@
     android:layout_height="match_parent"
     tools:context=".Reporte">
 
-    <TextView
-        android:id="@+id/tvTitulo"
-        android:layout_width="319dp"
-        android:layout_height="65dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="52dp"
-        android:text="Describa brevemente el incidente:"
-        android:textAlignment="center"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/etDireccion"
-        android:layout_width="340dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="40dp"
-        android:ems="10"
-        android:hint="Direccion"
-        android:inputType="textPostalAddress"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etDescripcion" />
-
-    <Button
-        android:id="@+id/btnAlarma"
-        android:layout_width="162dp"
-        android:layout_height="57dp"
-        android:layout_marginStart="124dp"
-        android:layout_marginTop="64dp"
-        android:text="Enviar Alarma"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etDireccion" />
-
     <EditText
         android:id="@+id/etDescripcion"
         android:layout_width="336dp"
         android:layout_height="169dp"
         android:layout_marginStart="36dp"
-        android:layout_marginTop="66dp"
+        android:layout_marginTop="48dp"
         android:ems="10"
         android:gravity="start|top"
         android:hint="Reporte su situacion..."
         android:inputType="textMultiLine"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitulo" />
+        app:layout_constraintTop_toBottomOf="@+id/FragmentMap" />
+
+    <Button
+        android:id="@+id/btnAlarma"
+        android:layout_width="162dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="116dp"
+        android:layout_marginTop="35dp"
+        android:text="Enviar Alarma"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etDescripcion" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/FragmentMap"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="364dp"
+        android:layout_height="252dp"
+        android:layout_marginTop="34dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

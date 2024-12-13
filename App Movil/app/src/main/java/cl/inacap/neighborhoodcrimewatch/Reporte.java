@@ -11,12 +11,14 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.FragmentActivity;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -26,7 +28,14 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -37,10 +46,14 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 
-public class Reporte extends AppCompatActivity {
+public class Reporte extends FragmentActivity implements OnMapReadyCallback {
     EditText descripcion, ubicacion; // Campos para la descripción y ubicación del incidente
     Button btnRegistrar; // Botón para registrar el incidente
     RequestQueue datos;
+    Location currentLocation;
+    FusedLocationProviderClient fusedClient;
+    private static final int REQUEST_CODE = 101;
+    FrameLayout FragmentMap;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -50,8 +63,11 @@ public class Reporte extends AppCompatActivity {
 
         // Inicializar los campos y el botón
         descripcion = findViewById(R.id.etDescripcion);
-        ubicacion = findViewById(R.id.etDireccion);
         btnRegistrar = findViewById(R.id.btnAlarma);
+        FragmentMap = findViewById(R.id.FragmentMap);
+
+        fusedClient = LocationServices.getFusedLocationProviderClient(this);
+        getLocation();
 
         // Inicializar RequestQueue
         datos = Volley.newRequestQueue(this);
@@ -65,13 +81,37 @@ public class Reporte extends AppCompatActivity {
         });
     }
 
+    private void getLocation() {
+        if (ActivityCompat.checkSelfPermission(
+                this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+                && ActivityCompat.checkSelfPermission(
+                this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_CODE);
+            return;
+        }
+
+        Task<Location> task = fusedClient.getLastLocation();
+
+        task.addOnSuccessListener(new OnSuccessListener<Location>() {
+            @Override
+            public void onSuccess(Location location) {
+                if (location != null) {
+                    currentLocation = location;
+                    SupportMapFragment supportMapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.FragmentMap);
+                    assert supportMapFragment != null;
+                    supportMapFragment.getMapAsync(Reporte.this);
+                }
+            }
+        });
+    }
+
     private void registrarIncidente() {
         String descripcionInput = descripcion.getText().toString().trim();
-        String ubicacionInput = ubicacion.getText().toString().trim();
         String idUsuario = obtenerIdUsuario();
 
-        if (descripcionInput.isEmpty() || ubicacionInput.isEmpty()) {
-            Toast.makeText(Reporte.this, "Por favor, complete todos los campos", Toast.LENGTH_SHORT).show();
+        if (descripcionInput.isEmpty() || currentLocation == null || idUsuario == null || idUsuario.isEmpty()) {
+            Toast.makeText(Reporte.this, "Por favor, complete todos los campos y asegúrese de tener ubicación", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -80,7 +120,8 @@ public class Reporte extends AppCompatActivity {
         JSONObject jsonBody = new JSONObject();
         try {
             jsonBody.put("descripcion", descripcionInput);
-            jsonBody.put("ubicacion", ubicacionInput);
+            jsonBody.put("latitud", String.valueOf(currentLocation.getLatitude()));
+            jsonBody.put("longitud", String.valueOf(currentLocation.getLongitude()));
             jsonBody.put("idusuario", idUsuario);
         } catch (JSONException e) {
             e.printStackTrace();
@@ -115,9 +156,33 @@ public class Reporte extends AppCompatActivity {
     }
 
     private String obtenerIdUsuario() {
-        SharedPreferences sharedPreferences = getSharedPreferences("mi_app", MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getSharedPreferences("usuario", MODE_PRIVATE);
         String idUsuario = sharedPreferences.getString("idusu", null);
         Log.d("Reporte", "ID de usuario: " + idUsuario); // Agregar un log para depuración
         return idUsuario; // Recuperar el ID del usuario
+    }
+
+    @Override
+    public void onMapReady(@NonNull GoogleMap googleMap) {
+        if (currentLocation != null) {
+            LatLng latLng = new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
+            MarkerOptions markerOptions = new MarkerOptions().position(latLng).title("Mi Locacion");
+            googleMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
+            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15));
+            googleMap.addMarker(markerOptions);
+        } else {
+            Toast.makeText(this, "No se ha obtenido la ubicación actual", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == REQUEST_CODE){
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                getLocation();
+            }
+        }
+
     }
 }
