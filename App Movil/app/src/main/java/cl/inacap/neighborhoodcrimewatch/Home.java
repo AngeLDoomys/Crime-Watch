@@ -61,7 +61,7 @@ public class Home extends AppCompatActivity {
         String idUsuario = sharedPreferences.getString("idusu", "");
 
         // URL para la consulta
-        String url = "http://54.173.43.72/consultanombre.php?usu=" + idUsuario;
+        String url = "http:///consultanombre.php?usu=" + idUsuario;
 
         // Realizar la consulta
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
