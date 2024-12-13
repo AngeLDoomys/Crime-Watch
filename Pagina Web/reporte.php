@@ -32,7 +32,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="js/bootstrap.bundle.js"></script>
     <!-- Asegúrate de reemplazar YOUR_API_KEY con tu clave de API de Google Maps -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7phRYKCHzVk4DNjnMaP4d7miK2NiLls8&callback=initMap" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/" async defer></script>
     <title>Robo Reporte</title>
 </head>
 <body>
