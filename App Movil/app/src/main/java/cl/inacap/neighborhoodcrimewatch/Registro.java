@@ -74,7 +74,7 @@ public class Registro extends AppCompatActivity {
         }
 
         // Aquí puedes agregar la lógica para enviar los datos al servidor
-        String url = "http://54.173.43.72/registrarUsuario.php?usu=" + userInput +
+        String url = "http:///registrarUsuario.php?usu=" + userInput +
                 "&pass=" + passwordInput +
                 "&nombres=" + nombresInput +
                 "&apellidos=" + apellidosInput +
