@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void consultardatos(String userInput, String passwordInput) {
-        String url = "http://54.173.43.72/consultadatos.php?usu=" + userInput + "&pass=" + passwordInput;
+        String url = "http:///consultadatos.php?usu=" + userInput + "&pass=" + passwordInput;
         Log.d("URL", url); // Para verificar que la URL es correcta
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
