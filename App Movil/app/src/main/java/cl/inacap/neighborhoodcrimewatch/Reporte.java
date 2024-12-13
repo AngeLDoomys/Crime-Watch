@@ -115,7 +115,7 @@ public class Reporte extends FragmentActivity implements OnMapReadyCallback {
             return;
         }
 
-        String url = "http://54.173.43.72/registrarIncidente.php";
+        String url = "http:///registrarIncidente.php";
 
         JSONObject jsonBody = new JSONObject();
         try {
